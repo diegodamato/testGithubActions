@@ -30,7 +30,7 @@ jobs:
           context: ./../../
           file: ./Dockerfile
           push: true
-          tags: diegodamato/test-github-actions:${GITHUB_REF#refs/tags/}
+          tags: diegodamato/test-github-actions:${GITHUB_REF/refs\/tags\//}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
