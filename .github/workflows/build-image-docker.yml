@@ -13,11 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Show docker username
-        run: echo ${{ secrets.DOCKER_HUB_USERNAME }}
+      - name: Show docker credential
+        run: echo ${{ secrets.secrets }}
 
-      - name: Show docker username
-        run: echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: Show docker secrets
+        run: echo ${{ secrets.secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Show docker username
         run: echo "Testando echo"
