@@ -7,8 +7,6 @@ on:
 
 jobs:
   build-image-docker:
-    env:
-      TAG: diegodamato/test-github-actions:${GITHUB_REF/refs\/tags\//}
     runs-on: ubuntu-18.04
 
     steps:
