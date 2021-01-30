@@ -37,7 +37,7 @@ jobs:
           context: ./../../
           file: ./Dockerfile
           push: true
-          tags: diegodamato/test-github-actions:${{ steps.version-tag.outputs.VERSION_TAG }}
+          tags: diegodamato/test-github-actions:${{ secrets.DOCKER_HUB_USERNAME }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
