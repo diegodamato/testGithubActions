@@ -15,6 +15,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Set version tag
+        run: echo '::set-output name=VERSION_TAG::${GITHUB_REF/refs\/tags\//}'
+        id: version-tag
+
+      - name: Get version tag
+        run: echo "The selected color is ${{ steps.version-tag.outputs.VERSION_TAG }}"
+
       - name: show tag version
         run: echo diegodamato/test-github-actions:${env.GITHUB_REF/refs\/tags\//}
       - name: Login to Docker Hub
@@ -34,7 +41,7 @@ jobs:
           context: ./../../
           file: ./Dockerfile
           push: true
-          tags: diegodamato/test-github-actions:${TAG}
+          tags: diegodamato/test-github-actions:${{ steps.version-tag.outputs.VERSION_TAG }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
